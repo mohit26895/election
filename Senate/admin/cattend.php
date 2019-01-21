@@ -1,0 +1,41 @@
+<?php
+session_start();
+ if($_SESSION['IS_AUTHENTICATED'] == 1){
+	$link=mysqli_connect('localhost','root','');
+	if(!$link)
+	{
+		die('Failed to connect:'.mysql_error());
+	}
+	$db=mysqli_select_db($link,'test_2014105');
+	if(!$db)
+	{
+		die('Unable to select database');
+	}
+	$qry='SELECT student_info.*,clubs_info.* FROM clubs_info INNER JOIN student_info ON clubs_info.rollno=student_info.rollno WHERE clubs_info.flag=0';
+	$result=mysqli_query($link,$qry);
+	
+	echo'<h1>The Result details-</h1>';
+	echo'<table border="1">
+			<th>Roll No</th>
+			<th>Name</th>
+			<th>Club</th>
+			<th>type</th>';
+			
+	while($row=mysqli_fetch_assoc($result))
+	{
+		echo '<tr>
+					<td>'.$row['rollno'].'</td>
+					<td>'.$row['name'].'</td>
+					<td>'.$row['cname'].'</td>
+					<td>'.$row['type'].'</td>
+					
+				</tr>';
+	}
+	echo '</table>';
+ }
+ else{
+ header(' location:login.php' ); 
+ exit();
+ }
+	?>
+				

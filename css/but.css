@@ -1,0 +1,39 @@
+/* Dropdown Button */
+.dropbtn {
+
+   
+    font-size: 20px;
+    border: none;
+    
+}
+
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+
+    min-width: 160px;
+
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    
+    
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+
+}
